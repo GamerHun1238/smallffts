@@ -44,7 +44,7 @@ void* threadFunction(void* arg) {
         free(data);
         workDone[threadIndex]++;
         if (stopThreads) {
-            return NULL; // Stop the thread if the flag is set
+            return NULL; // stop thread is asked so
         }
     }
     return NULL;
@@ -79,7 +79,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    atexit(free); // Cleanup allocated memory on exit
+    atexit(free); // cleanup mem
 
     printf("Startup.\n");
 
@@ -101,7 +101,6 @@ int main(int argc, char *argv[]) {
     printf("Total iterations done: %d\n", totalVal);
     printf("Time took in seconds: %f\n", timeTook);
 
-    // Format the "Iterations per second" output for better readability
     if (timeTook > 0) {
         double itPerMillisecond = itPerSecond / 1000;
 
